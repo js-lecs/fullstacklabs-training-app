@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatComponent implements OnInit {
 
+  date: Date = new Date();
+  name: String = 'Mahesh';
   constructor() { }
 
   ngOnInit() {

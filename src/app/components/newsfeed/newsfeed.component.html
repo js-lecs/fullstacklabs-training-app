@@ -1,8 +1,11 @@
-<input class="form-control" [(ngModel)]="title">
-<input class="form-control" [(ngModel)]="body">
+<input class="form-control" placeholder="title" [(ngModel)]="title">
+<input class="form-control" placeholder="body" [(ngModel)]="body">
 <button class="btn btn-info" (click)="insertPost()">Submit</button>
+<hr>
 
-<div *ngFor="let x of posts">
+<input class="form-control" placeholder="Search" [(ngModel)]="search">
+<hr>
+<div *ngFor="let x of posts | filter:search">
   <h1> {{x.title}}</h1>
   <p> {{x.body}}</p>
   <hr>

@@ -13,6 +13,8 @@ export class NewsfeedComponent implements OnInit {
 
   public title: String = '';
   public body: String = '';
+  public search: String = '';
+
   constructor(private newsFeedService: NewsFeedService) {
     this.getPostsFromService();
   }
