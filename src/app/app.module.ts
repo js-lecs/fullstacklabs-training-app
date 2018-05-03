@@ -11,6 +11,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { APP_ROUTES } from './app.routing';
 import { LayoutComponent } from './components/layout/layout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewsFeedService } from './services/newsfeed.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     RouterModule.forRoot(APP_ROUTES),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    NewsFeedService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
