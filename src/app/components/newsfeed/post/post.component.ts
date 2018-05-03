@@ -21,7 +21,7 @@ export class PostComponent implements OnInit, AfterViewInit,
   }
 
   ngDoCheck(): void {
-    throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.');
   }
 
   ngOnChanges() {

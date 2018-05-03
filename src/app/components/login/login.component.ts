@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
     if (this.form.valid) {
       const data: ILogin = this.form.value;
       if (data.username === 'abc@a.com' && data.password === 'abc') {
+        localStorage.setItem('LOGGED_IN', 'TRUE');
         this.router.navigate(['/', 'home']);
       } else {
         alert('invalid credentials');

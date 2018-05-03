@@ -4,6 +4,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { NewsfeedComponent } from './components/newsfeed/newsfeed.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const APP_ROUTES: Routes = [
     {
@@ -32,7 +33,7 @@ export const APP_ROUTES: Routes = [
                 component: ChatComponent
             }
         ],
-        canActivate: [],
+        canActivate: [AuthGuard],
         canDeactivate: []
     }
 ];
