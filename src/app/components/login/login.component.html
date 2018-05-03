@@ -5,16 +5,18 @@
 
     <h1> Login</h1>
 
-    <div class="form-group">
-      <input type="text" class="form-control">
-    </div>
-    <div class="form-group">
-      <input type="text" class="form-control">
-    </div>
-    <div class="form-group">
-      <a class="btn btn-success" routerLink="/home"> Login </a>
-      <a class="btn btn-default" routerLink="/register"> Register </a>
-    </div>
+    <form [formGroup]="form">
+      <div class="form-group">
+        <input type="text" formControlName="username" class="form-control" placeholder="Username">
+      </div>
+      <div class="form-group">
+        <input type="text" formControlName="password" class="form-control" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <button (click)="login()" type="button" class="btn btn-success" > Login </button>
+        <a class="btn btn-default" routerLink="/register"> Register </a>
+      </div>
+    </form>
 
   </div>
 </div>
