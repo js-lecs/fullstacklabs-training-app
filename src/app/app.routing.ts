@@ -31,6 +31,8 @@ export const APP_ROUTES: Routes = [
                 path: 'chat',
                 component: ChatComponent
             }
-        ]
+        ],
+        canActivate: [],
+        canDeactivate: []
     }
 ];
