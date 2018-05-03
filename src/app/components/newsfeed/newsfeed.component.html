@@ -1,12 +1,9 @@
-<input class="form-control" placeholder="title" [(ngModel)]="title">
-<input class="form-control" placeholder="body" [(ngModel)]="body">
-<button class="btn btn-info" (click)="insertPost()">Submit</button>
-<hr>
-
-<input class="form-control" placeholder="Search" [(ngModel)]="search">
-<hr>
-<div *ngFor="let x of posts | filter:search">
-  <h1> {{x.title}}</h1>
-  <p> {{x.body}}</p>
+<div class="container">
+  <app-post-form (success)="postSuccess($event)"></app-post-form>
   <hr>
-</div> 
+
+  <input class="form-control" placeholder="Search" [(ngModel)]="search">
+  <hr>
+
+  <app-post [body]="x.body" [title]="x.title" *ngFor="let x of posts | filter:search"></app-post>
+</div>

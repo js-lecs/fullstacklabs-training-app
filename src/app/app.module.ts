@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewsFeedService } from './services/newsfeed.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterPipe } from './pipes/filter.pipe';
+import { PostComponent } from './components/newsfeed/post/post.component';
+import { PostFormComponent } from './components/newsfeed/post-form/post-form.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { FilterPipe } from './pipes/filter.pipe';
     LoginComponent,
     RegisterComponent,
     LayoutComponent,
-    FilterPipe
+    FilterPipe,
+    PostComponent,
+    PostFormComponent
   ],
   imports: [
     BrowserModule,

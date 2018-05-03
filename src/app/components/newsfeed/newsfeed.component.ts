@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NewsFeedService } from '../../services/newsfeed.service';
 import { IPost } from '../../interfaces/newsfeed.interface';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-newsfeed',
   templateUrl: './newsfeed.component.html',
   styleUrls: ['./newsfeed.component.scss']
 })
-export class NewsfeedComponent implements OnInit {
+export class NewsfeedComponent implements OnInit, OnDestroy {
+
 
   public posts: IPost[] = [];
+  public postSubcription$: Subscription;
 
-  public title: String = '';
-  public body: String = '';
   public search: String = '';
 
   constructor(private newsFeedService: NewsFeedService) {
@@ -23,24 +24,20 @@ export class NewsfeedComponent implements OnInit {
   }
 
   getPostsFromService() {
-    this.newsFeedService.getPosts().subscribe((data: IPost[]) => {
+    this.postSubcription$ = this.newsFeedService.getPosts().subscribe((data: IPost[]) => {
       this.posts = data;
     }, (err) => {
       console.log('posts error', err);
     });
   }
 
-  insertPost() {
-    this.newsFeedService.insertPost(
-      {
-        title: this.title,
-        body: this.body,
-        userId: 1
-      }
-    ).subscribe((data) => {
-      console.log('success post', data);
-    }, (err) => {
-      console.log('error post', err);
-    });
+  ngOnDestroy(): void {
+    if (this.postSubcription$) {
+      this.postSubcription$.unsubscribe();
+    }
+  }
+
+  postSuccess(data: IPost) {
+    alert(` Post  ${data.title} successfully Inserted`);
   }
 }
