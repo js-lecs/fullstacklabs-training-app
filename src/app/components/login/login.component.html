@@ -7,13 +7,15 @@
 
     <form [formGroup]="form">
       <div class="form-group">
-        <input type="text" formControlName="username" class="form-control" placeholder="Username">
+        <input type="text" [(ngModel)]="username" formControlName="username" class="form-control" placeholder="Username">
       </div>
+      2 way binding example: {{username}}
+
       <div class="form-group">
         <input type="text" formControlName="password" class="form-control" placeholder="Password">
       </div>
       <div class="form-group">
-        <button (click)="login()" type="button" class="btn btn-success" > Login </button>
+        <button (click)="login()" type="button" class="btn btn-success"> Login </button>
         <a class="btn btn-default" routerLink="/register"> Register </a>
       </div>
     </form>
